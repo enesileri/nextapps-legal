@@ -5,7 +5,7 @@ const path = require('path');
 const { marked } = require(process.env.MARKED_PATH || 'C:/dev/legal-tools/node_modules/marked');
 
 const ROOT = path.resolve(__dirname, '..');
-const SUPPORT_EMAIL = 'game.enesileri@gmail.com';
+const SUPPORT_EMAIL = 'support.nextapps@gmail.com';
 const OUT = path.join(__dirname, 'docs');
 
 const APPS = [
@@ -54,7 +54,9 @@ for (const app of APPS) {
     if (!fs.existsSync(src)) { if (p.sub === '') missing.push(app.dir); continue; }
     const dest = path.join(OUT, app.slug, p.sub);
     fs.mkdirSync(dest, { recursive: true });
-    const md = fs.readFileSync(src, 'utf8').replaceAll('{{DESTEK_EPOSTA}}', SUPPORT_EMAIL);
+    const md = fs.readFileSync(src, 'utf8')
+      .replaceAll('{{DESTEK_EPOSTA}}', SUPPORT_EMAIL)
+      .replaceAll('game.enesileri@gmail.com', SUPPORT_EMAIL);
     const body = marked.parse(md);
     const crumb = `<a href="../${p.sub ? '../' : ''}">NextApps</a> › <a href="${p.sub ? '../' : './'}">${app.name}</a>`;
     fs.writeFileSync(path.join(dest, 'index.html'), page(`${app.name} — ${p.title}`, body, crumb));
