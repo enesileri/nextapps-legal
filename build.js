@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require(process.env.MARKED_PATH || 'C:/dev/legal-tools/node_modules/marked');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(__dirname, '../..');
 const SUPPORT_EMAIL = 'support.nextapps@gmail.com';
 const OUT = path.join(__dirname, 'docs');
 
