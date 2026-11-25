@@ -47,7 +47,7 @@ table{border-collapse:collapse;width:100%;display:block;overflow-x:auto;border-r
 hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 nav{font-size:.9rem;color:var(--muted);margin-bottom:28px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 nav .mk{display:inline-flex;align-items:center;gap:8px;font-family:Unbounded,sans-serif;font-weight:700;color:#fff;text-decoration:none}
-nav .mk i{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--acc1),var(--acc2));display:inline-block}
+nav .mk img{width:24px;height:24px;border-radius:7px;display:inline-block} nav .mk b{color:#8b85f7;font-weight:800}
 footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 .idx h2{border:0;margin-top:1.4rem;padding:0}.idx p{margin:.3rem 0 0}
 .idx section{padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:var(--card);margin-top:12px}`;
@@ -77,12 +77,12 @@ for (const app of APPS) {
       .replaceAll('{{DESTEK_EPOSTA}}', SUPPORT_EMAIL)
       .replaceAll('game.enesileri@gmail.com', SUPPORT_EMAIL);
     const body = marked.parse(md);
-    const crumb = `<a class="mk" href="../${p.sub ? '../' : ''}"><i></i>NextApps</a> › <a href="${p.sub ? '../' : './'}">${app.name}</a>`;
+    const crumb = `<a class="mk" href="../${p.sub ? '../' : ''}"><img src="https://enesileri.github.io/assets/mark.svg" alt="" width="24" height="24">Next<b>Apps</b></a> › <a href="${p.sub ? '../' : './'}">${app.name}</a>`;
     fs.writeFileSync(path.join(dest, 'index.html'), page(`${app.name} — ${p.title}`, body, crumb));
     links.push(`<a href="${app.slug}/${p.sub ? p.sub + '/' : ''}">${p.title}</a>`);
   }
   if (links.length) index.push(`<section><h2>${app.name}</h2><p>${links.join(' · ')}</p></section>`);
 }
 fs.writeFileSync(path.join(OUT, 'index.html'),
-  page('NextApps — Yasal Sayfalar', `<div class="idx"><h1>NextApps yasal sayfaları</h1>${index.join('')}</div>`, '<a class="mk" href="https://enesileri.github.io/"><i></i>NextApps</a>'));
+  page('NextApps — Yasal Sayfalar', `<div class="idx"><h1>NextApps yasal sayfaları</h1>${index.join('')}</div>`, '<a class="mk" href="https://enesileri.github.io/"><img src="https://enesileri.github.io/assets/mark.svg" alt="" width="24" height="24">Next<b>Apps</b></a>'));
 console.log('built', index.length, 'apps;', missing.length ? 'missing privacy: ' + missing.join(', ') : 'all privacy pages present');
