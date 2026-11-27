@@ -21,6 +21,8 @@ const APPS = [
   { dir: 'piyasa', slug: 'piyasa', name: 'Piyasa' },
   { dir: 'pikap', slug: 'pikap', name: 'Pikap' },
   { dir: 'bilye-rayi', slug: 'bilyerayi', name: 'Bilye Rayı' },
+  { dir: 'yorunge', slug: 'yorunge', name: 'Yörünge' },
+  { dir: 'dolu-dolu', slug: 'doludolu', name: 'Dolu Dolu' },
 ];
 
 // store file -> sub path under /<slug>/
