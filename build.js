@@ -21,6 +21,7 @@ const APPS = [
   { dir: 'piyasa', slug: 'piyasa', name: 'Piyasa' },
   { dir: 'pikap', slug: 'pikap', name: 'Pikap' },
   { dir: 'bilye-rayi', slug: 'bilyerayi', name: 'Bilye Rayı' },
+  { dir: '/c/Program Files (x86)/Development Project/zihin', slug: 'zihin', name: 'Zihin' },
   { dir: 'karekod', slug: 'karekod', name: 'Karekod' },
   { dir: 'netlik', slug: 'netlik', name: 'Netlik' },
   { dir: 'mutlu-gun', slug: 'mutlugun', name: 'Mutlu Gün' },
